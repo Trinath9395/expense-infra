@@ -1,6 +1,6 @@
 resource "aws_key_pair" "eks" {
   key_name   = "expense-eks"
-  public_key = file("C:/Users/Welceme/.ssh/eks.pub")
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDlKEn9+XMCC/UvB5fN9tl7NwxYJyJPzQXKYfzg5aCy6D9Nf6V3WCS1K8neOwDaXyfHKfRBjf9je6M/rpOPJ+Mi4ni3ROW387kZc4D5Lhxrqet4YftS5+sexDqM7HTYD6cV1D8BNab5d1MHNrBhQWwxXk54jpw3Syq9QrcaUXCxBcDGJ/F3ZfwUZDDdlaLPF4aZYVCnYs4Bpba6eVhZ1VM8asR6c+xVpBEZHNTNrbo58faZeNFYPTOTPe8JbnjA+PRBaMTTw0FjcDZRsUB9YAQsvdmex0DOmyUOgAty+hIzJ3qeD7iqM6iCONSA+nDY/xKxIQFwqtqhFwfTO0lQoaDdMJs0GeJxl+z1poIbAqgz+mCSzxMqdPDoqu9DmODs3kjJs9ab53Hx2/1ntTf1Td/aSGYMtn6tuMIEHU0lZGtpa7Wo7pez/n1B3e9Q7u4gWFz25GHgfd12QJEvo2kp23GTGlhFgAAidbav6GOvwULJOxRhmnibnugOyBVhnpnKXMZs0TRPw/jbdeN2T+poBZC1iv6FBh/ycdyQtqQW6ElXeDbzwnNnaPKBp6W1jOSzzmkXFrQSoAbasDcjFw8Z/sxOMl/zEzdyDVz7LnIpWFx1X1CdBR0A9lS0r1x36f1EpE8WWwCLdW78hsU3zu+KvsAZ3N2aWFnHmDuhz33oG/lojw== Welceme@DESKTOP-BGA4N7S"
 }
 
 module "eks" {
