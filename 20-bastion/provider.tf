@@ -7,7 +7,7 @@ terraform {
   }
 
   backend s3 {
-  bucket = "82s-tf-remote-state-dev-pr"
+  bucket = "82-remote-state-pr-dev"
   key = "expense-dev-jenkins"
   region = "us-east-1"
   use_lockfile = true
