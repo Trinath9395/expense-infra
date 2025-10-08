@@ -7,8 +7,8 @@ terraform {
   }
 
   backend s3 {
-  bucket = "82-remote-state-pr"
-  key = "expense-infra-eks"
+  bucket = "82-remote-state-pr-dev"
+  key = "expense-infra-dev-eks"
   region = "us-east-1"
   use_lockfile = false
  }
