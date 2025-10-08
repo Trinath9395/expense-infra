@@ -45,7 +45,7 @@ pipeline {
                }
             }
         }
-        /* stage('Parallel Stages') {
+        stage('Parallel Stages') {
             when { 
                 expression { params.ACTION == 'apply'}
             }
@@ -71,8 +71,8 @@ pipeline {
                     }
                 }
             }
-        }  */
-      /*   stage('Sequential') {
+        } 
+        stage('Sequential') {
             stages {
                 stage('60-acm') {
                     steps {
@@ -85,7 +85,7 @@ pipeline {
                     }
                 }
             }
-        } */
+        }
     }
     post { 
         always { 
