@@ -45,7 +45,7 @@ pipeline {
                }
             }
         }
-        /* stage('Parallel Stages') {
+/*         stage('Parallel Stages') {
             when { 
                 expression { params.ACTION == 'apply'}
             }
@@ -84,8 +84,8 @@ pipeline {
                         build job: '70-ingress-alb', parameters: [string(name: 'ACTION', value: 'apply')], wait: false
                     }
                 }
-            } */
-        }
+            }
+        } */
     }
     post { 
         always { 
