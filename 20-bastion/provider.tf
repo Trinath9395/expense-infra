@@ -7,7 +7,7 @@ terraform {
   }
 
   backend s3 {
-  bucket = "82s-tf-remote-state-dev-pr"
+  bucket = "82-remote-state-pr-prod"
   key = "sg-infra-eks-bastion"
   region = "us-east-1"
   use_lockfile = false
