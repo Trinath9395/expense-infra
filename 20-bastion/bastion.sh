@@ -59,3 +59,5 @@ chmod 700 get_helm.sh
 curl -sS https://webinstall.dev/k9s | bash
 export PATH=$HOME/.local/bin:$PATH
 
+# mysql istallation 
+sudo dnf install mysql -y
