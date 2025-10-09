@@ -6,11 +6,11 @@ terraform {
     }
   }
 
-  backend "s3" {
-  bucket = "82-remote-state-pr"
-  key = "expense-infra-dev-jenkins"
+  backend s3 {
+  bucket = "82s-tf-remote-state-dev-pr"
+  key = "sg-infra-eks-bastion"
   region = "us-east-1"
-  use_lockfile = true
+  use_lockfile = false
  }
 
 }
