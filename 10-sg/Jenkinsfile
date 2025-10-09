@@ -1,53 +1,58 @@
 pipeline {
     agent { label 'AGENT-1' }
+
     environment { 
         PROJECT = 'EXPENSE'
         COMPONENT = 'BACKEND' 
         DEPLOY_TO = "production"
     }
+
     options {
         disableConcurrentBuilds()
         timeout(time: 30, unit: 'MINUTES')
         ansiColor('xterm')
     }
-    parameters{
+
+    parameters {
         choice(name: 'ACTION', choices: ['apply', 'destroy'], description: 'Pick something')
-    } 
+    }
+
     stages {
         stage('Init') {
             steps {
-               script{
-                withAWS(region: 'us-east-1', credentials: 'aws-creds') {
-                    sh """
-                        cd 10-sg
-                        terraform init -reconfigure
-                        terraform plan
-                    """
+                script {
+                    withAWS(region: 'us-east-1', credentials: 'aws-creds') {
+                        sh """
+                            cd 10-sg
+                            terraform init -reconfigure
+                            terraform plan
+                        """
+                    }
                 }
-                 
-               }
             }
         }
+
         stage('Apply') {
-              input {
+            input {
                 message "Should we continue?"
                 ok "Yes, we should."
             } 
             steps {
-               script{
-                withAWS(region: 'us-east-1', credentials: 'aws-creds') {
-                    sh """
-                        cd 10-sg
-                        terraform apply -auto-approve
-                    """
+                script {
+                    withAWS(region: 'us-east-1', credentials: 'aws-creds') {
+                        sh """
+                            cd 10-sg
+                            terraform apply -auto-approve
+                        """
+                    }
                 }
-                 
-               }
             }
         }
-/*         stage('Parallel Stages') {
+
+        /*
+        stage('Parallel Stages') {
             when { 
-                expression { params.ACTION == 'apply'}
+                expression { params.ACTION == 'apply' }
             }
             parallel {
                 stage('20-bastion') {    
@@ -71,7 +76,8 @@ pipeline {
                     }
                 }
             }
-        } 
+        }
+
         stage('Sequential') {
             stages {
                 stage('60-acm') {
@@ -85,8 +91,10 @@ pipeline {
                     }
                 }
             }
-        } */
+        }
+        */
     }
+
     post { 
         always { 
             echo 'I will always say Hello again!'
